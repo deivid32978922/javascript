@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro Interativo de JavaScript - Completo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Livro Interativo de JavaScript - Completo</h1>
+    <button id="toggleMode">Modo Resumido</button>
+  </header>
+  <main>
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 1: O que é JavaScript?</h2>
+      <div class="detalhado">
+        <p>JavaScript é uma linguagem de programação de alto nível, interpretada e dinamicamente tipada. Criada em 1995 por Brendan Eich na Netscape, JavaScript se tornou essencial para o desenvolvimento web moderno. Ela permite criar páginas dinâmicas, interativas e responsivas, sendo executada diretamente no navegador do usuário através do motor JavaScript (V8 no Chrome, SpiderMonkey no Firefox).</p>
+        <p>Com JavaScript, é possível manipular elementos da página em tempo real, responder a eventos do usuário, fazer requisições assíncronas, criar animações complexas e até mesmo desenvolver aplicações completas no frontend e backend (Node.js).</p>
+      </div>
+      <div class="resumido">
+        <p>JavaScript é uma linguagem de programação que torna sites dinâmicos e interativos.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Exemplo Básico</h3>
+        <p>Primeiro contato com JavaScript:</p>
+        <pre><code class="codigo">&lt;button onclick="alert('Olá, JavaScript!')"&gt;Clique aqui&lt;/button&gt;
+
+// Ou usando JavaScript moderno:
+document.querySelector('button').addEventListener('click', () => {
+  alert('Olá, JavaScript!');
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 2: Variáveis e Tipos de Dados</h2>
+      <div class="detalhado">
+        <p>Variáveis são containers que armazenam valores que podem ser usados e modificados ao longo do código. Em JavaScript moderno, usamos <code>let</code> (variável mutável), <code>const</code> (constante) ou <code>var</code> (escopo de função, não recomendado).</p>
+        <p>JavaScript é dinamicamente tipado, mas possui os seguintes tipos primitivos: <b>string</b> (texto), <b>number</b> (números inteiros e decimais), <b>boolean</b> (true/false), <b>null</b> (ausência intencional de valor), <b>undefined</b> (valor não definido), <b>symbol</b> (identificador único) e <b>bigint</b> (números grandes).</p>
+        <p>Tipos de referência incluem: <b>object</b> (objetos), <b>array</b> (listas), <b>function</b> (funções) e <b>date</b> (datas).</p>
+      </div>
+      <div class="resumido">
+        <p>Variáveis guardam valores. Tipos: primitivos (string, number, boolean) e de referência (object, array).</p>
+      </div>
+      <div class="exemplo">
+        <h3>Exemplos Detalhados</h3>
+        <pre><code class="codigo">// Declaração de variáveis
+let nome = "Ana Silva";
+const idade = 25;
+let salario = 3500.50;
+let ativo = true;
+let endereco = null;
+let telefone; // undefined
+
+// Arrays (listas)
+let frutas = ["maçã", "banana", "laranja"];
+let numeros = [1, 2, 3, 4, 5];
+
+// Objetos
+let pessoa = {
+  nome: "João",
+  idade: 30,
+  profissao: "Desenvolvedor",
+  endereco: {
+    rua: "Rua das Flores",
+    cidade: "São Paulo"
+  }
+};
+
+// Verificando tipos
+console.log(typeof nome); // "string"
+console.log(typeof idade); // "number"
+console.log(Array.isArray(frutas)); // true</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 3: Funções em JavaScript</h2>
+      <div class="detalhado">
+        <p>Funções são blocos de código reutilizáveis que executam uma tarefa específica. Elas podem receber parâmetros (argumentos) e retornar valores. Em JavaScript, funções são objetos de primeira classe, podendo ser atribuídas a variáveis, passadas como argumentos e retornadas por outras funções.</p>
+        <p>Existem várias formas de declarar funções: <b>Function Declaration</b> (declaração tradicional), <b>Function Expression</b> (expressão de função), <b>Arrow Function</b> (função seta, ES6+), <b>IIFE</b> (Immediately Invoked Function Expression) e <b>Generator Functions</b> (funções geradoras).</p>
+      </div>
+      <div class="resumido">
+        <p>Funções executam tarefas e podem ser reutilizadas. Múltiplas formas de declaração.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Diferentes Formas de Funções</h3>
+        <pre><code class="codigo">// 1. Function Declaration
+function somar(a, b) {
+  return a + b;
+}
+
+// 2. Function Expression
+const multiplicar = function(a, b) {
+  return a * b;
+};
+
+// 3. Arrow Function (ES6+)
+const dividir = (a, b) => a / b;
+
+// 4. Arrow Function com múltiplas linhas
+const calcularArea = (base, altura) => {
+  const area = base * altura;
+  return area;
+};
+
+// 5. Função com parâmetros padrão
+const saudar = (nome = "Visitante") => {
+  return `Olá, ${nome}!`;
+};
+
+// 6. Função com rest parameters
+const somarTodos = (...numeros) => {
+  return numeros.reduce((total, num) => total + num, 0);
+};
+
+// 7. IIFE (Immediately Invoked Function Expression)
+(function() {
+  console.log("Executada imediatamente!");
+})();
+
+// Uso das funções
+console.log(somar(5, 3)); // 8
+console.log(multiplicar(4, 6)); // 24
+console.log(dividir(10, 2)); // 5
+console.log(saudar("Maria")); // "Olá, Maria!"
+console.log(somarTodos(1, 2, 3, 4, 5)); // 15</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 4: Arrays e Métodos</h2>
+      <div class="detalhado">
+        <p>Arrays são estruturas de dados que armazenam múltiplos valores em uma única variável. Em JavaScript, arrays são objetos especiais com propriedades e métodos úteis para manipulação de dados.</p>
+        <p>Métodos importantes incluem: <b>push/pop</b> (adicionar/remover do final), <b>unshift/shift</b> (adicionar/remover do início), <b>splice</b> (modificar array), <b>slice</b> (extrair parte), <b>map</b> (transformar elementos), <b>filter</b> (filtrar elementos), <b>reduce</b> (reduzir a um valor), <b>find/findIndex</b> (encontrar elementos), <b>sort</b> (ordenar) e <b>forEach</b> (iterar).</p>
+      </div>
+      <div class="resumido">
+        <p>Arrays são listas de valores. Métodos como map, filter, reduce para manipulação.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Manipulação de Arrays</h3>
+        <pre><code class="codigo">// Criando arrays
+let frutas = ["maçã", "banana", "laranja"];
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// Métodos básicos
+frutas.push("uva"); // Adiciona no final
+frutas.unshift("morango"); // Adiciona no início
+frutas.pop(); // Remove do final
+frutas.shift(); // Remove do início
+
+// Métodos de transformação
+const numerosDobrados = numeros.map(num => num * 2);
+const numerosPares = numeros.filter(num => num % 2 === 0);
+const somaTotal = numeros.reduce((total, num) => total + num, 0);
+
+// Encontrar elementos
+const primeiroPar = numeros.find(num => num % 2 === 0);
+const indiceDoCinco = numeros.findIndex(num => num === 5);
+
+// Ordenação
+const frutasOrdenadas = frutas.sort();
+const numerosOrdenados = numeros.sort((a, b) => a - b);
+
+// Iteração
+frutas.forEach((fruta, index) => {
+  console.log(`${index + 1}: ${fruta}`);
+});
+
+// Spread operator
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const arrayCombinado = [...array1, ...array2];
+
+// Destructuring
+const [primeiro, segundo, ...resto] = numeros;
+
+console.log("Números dobrados:", numerosDobrados);
+console.log("Números pares:", numerosPares);
+console.log("Soma total:", somaTotal);
+console.log("Primeiro par:", primeiroPar);
+console.log("Array combinado:", arrayCombinado);</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 5: Objetos e Classes</h2>
+      <div class="detalhado">
+        <p>Objetos são estruturas de dados que armazenam pares chave-valor. Em JavaScript, objetos são a base para programação orientada a objetos. Classes (ES6+) são templates para criar objetos, oferecendo uma sintaxe mais clara para herança e encapsulamento.</p>
+        <p>Conceitos importantes: <b>propriedades</b> (dados do objeto), <b>métodos</b> (funções do objeto), <b>construtor</b> (função que cria objetos), <b>herança</b> (extends), <b>encapsulamento</b> (private fields), <b>polimorfismo</b> (múltiplas formas) e <b>getters/setters</b> (acesso controlado).</p>
+      </div>
+      <div class="resumido">
+        <p>Objetos são pares chave-valor. Classes são templates para criar objetos.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Objetos e Classes</h3>
+        <pre><code class="codigo">// Objeto literal
+const pessoa = {
+  nome: "João",
+  idade: 30,
+  saudar() {
+    return `Olá, sou ${this.nome}`;
+  }
+};
+
+// Factory Function
+function criarPessoa(nome, idade) {
+  return {
+    nome,
+    idade,
+    saudar() {
+      return `Olá, sou ${this.nome}`;
+    }
+  };
+}
+
+// Constructor Function
+function Pessoa(nome, idade) {
+  this.nome = nome;
+  this.idade = idade;
+  this.saudar = function() {
+    return `Olá, sou ${this.nome}`;
+  };
+}
+
+// Classe (ES6+)
+class Funcionario {
+  #salario; // Campo privado
+  
+  constructor(nome, cargo, salario) {
+    this.nome = nome;
+    this.cargo = cargo;
+    this.#salario = salario;
+  }
+  
+  // Getter
+  get salario() {
+    return this.#salario;
+  }
+  
+  // Setter
+  set salario(novoSalario) {
+    if (novoSalario > 0) {
+      this.#salario = novoSalario;
+    }
+  }
+  
+  trabalhar() {
+    return `${this.nome} está trabalhando como ${this.cargo}`;
+  }
+  
+  static criarFuncionario(dados) {
+    return new Funcionario(dados.nome, dados.cargo, dados.salario);
+  }
+}
+
+// Herança
+class Gerente extends Funcionario {
+  constructor(nome, salario, departamento) {
+    super(nome, "Gerente", salario);
+    this.departamento = departamento;
+  }
+  
+  gerenciar() {
+    return `${this.nome} está gerenciando o ${this.departamento}`;
+  }
+}
+
+// Uso
+const joao = new Funcionario("João", "Desenvolvedor", 5000);
+const maria = new Gerente("Maria", 8000, "TI");
+
+console.log(joao.trabalhar());
+console.log(maria.gerenciar());
+console.log(joao.salario); // Getter
+joao.salario = 5500; // Setter</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 6: Manipulação do DOM</h2>
+      <div class="detalhado">
+        <p>O DOM (Document Object Model) é uma representação em árvore da estrutura HTML da página. JavaScript permite acessar e modificar elementos do DOM para criar páginas dinâmicas e interativas.</p>
+        <p>Métodos de seleção: <b>getElementById</b>, <b>getElementsByClassName</b>, <b>getElementsByTagName</b>, <b>querySelector</b>, <b>querySelectorAll</b>. Manipulação: <b>innerHTML</b>, <b>textContent</b>, <b>setAttribute</b>, <b>classList</b>, <b>style</b>, <b>createElement</b>, <b>appendChild</b>, <b>removeChild</b>.</p>
+      </div>
+      <div class="resumido">
+        <p>DOM representa a página HTML. JavaScript pode modificar elementos em tempo real.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Manipulação do DOM</h3>
+        <button id="demoBtn">Clique para Demo</button>
+        <div id="demoArea" style="margin: 1rem 0; padding: 1rem; background: #1b3358; border-radius: 8px;"></div>
+        <pre><code class="codigo">// Seleção de elementos
+const elemento = document.getElementById('meuId');
+const elementos = document.getElementsByClassName('minhaClasse');
+const primeiro = document.querySelector('.minhaClasse');
+const todos = document.querySelectorAll('.minhaClasse');
+
+// Modificando conteúdo
+elemento.innerHTML = '&lt;strong&gt;Novo conteúdo&lt;/strong&gt;';
+elemento.textContent = 'Texto simples';
+elemento.setAttribute('class', 'novaClasse');
+
+// Manipulando classes
+elemento.classList.add('classeNova');
+elemento.classList.remove('classeAntiga');
+elemento.classList.toggle('classeAlternada');
+
+// Modificando estilos
+elemento.style.backgroundColor = '#ff0000';
+elemento.style.fontSize = '18px';
+
+// Criando elementos
+const novoElemento = document.createElement('div');
+novoElemento.textContent = 'Elemento criado dinamicamente';
+novoElemento.className = 'elementoNovo';
+
+// Adicionando ao DOM
+document.body.appendChild(novoElemento);
+elemento.appendChild(novoElemento);
+
+// Removendo elementos
+elemento.removeChild(novoElemento);
+novoElemento.remove();
+
+// Exemplo prático
+document.getElementById('demoBtn').addEventListener('click', function() {
+  const area = document.getElementById('demoArea');
+  const hora = new Date().toLocaleTimeString();
+  
+  area.innerHTML = `
+    &lt;h4&gt;Demonstração DOM&lt;/h4&gt;
+    &lt;p&gt;Hora atual: ${hora}&lt;/p&gt;
+    &lt;button onclick="this.style.background='#ff6b6b'"&gt;
+      Mudar Cor
+    &lt;/button&gt;
+  `;
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 7: Eventos</h2>
+      <div class="detalhado">
+        <p>Eventos são ações que ocorrem na página, como cliques, teclas pressionadas, carregamento de página ou mudanças em formulários. JavaScript permite reagir a esses eventos para criar interatividade.</p>
+        <p>Tipos de eventos: <b>Mouse</b> (click, dblclick, mouseover, mouseout), <b>Teclado</b> (keydown, keyup, keypress), <b>Formulário</b> (submit, change, input, focus, blur), <b>Documento</b> (load, DOMContentLoaded, resize, scroll), <b>Touch</b> (touchstart, touchmove, touchend).</p>
+      </div>
+      <div class="resumido">
+        <p>Eventos permitem responder a ações do usuário. Múltiplos tipos: mouse, teclado, formulário.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Exemplos de Eventos</h3>
+        <div id="eventDemo" style="margin: 1rem 0; padding: 1rem; background: #1b3358; border-radius: 8px; min-height: 100px;">
+          <p>Área de demonstração de eventos</p>
+          <button id="eventBtn">Clique Aqui</button>
+          <input type="text" id="eventInput" placeholder="Digite algo..." style="margin: 0.5rem 0; padding: 0.5rem; width: 200px;">
+        </div>
+        <pre><code class="codigo">// Eventos de mouse
+elemento.addEventListener('click', function(e) {
+  console.log('Clique detectado!');
+  console.log('Coordenadas:', e.clientX, e.clientY);
+});
+
+elemento.addEventListener('mouseover', function() {
+  this.style.backgroundColor = '#ff6b6b';
+});
+
+elemento.addEventListener('mouseout', function() {
+  this.style.backgroundColor = '#6fa3ef';
+});
+
+// Eventos de teclado
+document.addEventListener('keydown', function(e) {
+  console.log('Tecla pressionada:', e.key);
+  console.log('Código da tecla:', e.code);
+  
+  if (e.key === 'Escape') {
+    console.log('Escape pressionado!');
+  }
+});
+
+// Eventos de formulário
+const input = document.querySelector('input');
+input.addEventListener('input', function(e) {
+  console.log('Valor digitado:', e.target.value);
+});
+
+input.addEventListener('focus', function() {
+  this.style.borderColor = '#6fa3ef';
+});
+
+input.addEventListener('blur', function() {
+  this.style.borderColor = '#ccc';
+});
+
+// Evento de carregamento
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM carregado!');
+});
+
+// Removendo eventos
+const handler = function() { console.log('Evento!'); };
+elemento.addEventListener('click', handler);
+elemento.removeEventListener('click', handler);
+
+// Event delegation
+document.addEventListener('click', function(e) {
+  if (e.target.matches('.botao')) {
+    console.log('Botão clicado via delegation');
+  }
+});</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 8: Promises e Async/Await</h2>
+      <div class="detalhado">
+        <p>Promises são objetos que representam a eventual conclusão (ou falha) de uma operação assíncrona. Async/Await é uma sintaxe mais limpa para trabalhar com promises, tornando o código assíncrono mais legível.</p>
+        <p>Estados de uma Promise: <b>pending</b> (pendente), <b>fulfilled</b> (resolvida), <b>rejected</b> (rejeitada). Métodos: <b>then</b> (sucesso), <b>catch</b> (erro), <b>finally</b> (sempre executado), <b>Promise.all</b> (múltiplas promises), <b>Promise.race</b> (primeira a resolver).</p>
+      </div>
+      <div class="resumido">
+        <p>Promises lidam com operações assíncronas. Async/await torna o código mais limpo.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Promises e Async/Await</h3>
+        <button id="promiseBtn">Testar Promises</button>
+        <div id="promiseResult" style="margin: 1rem 0; padding: 1rem; background: #1b3358; border-radius: 8px;"></div>
+        <pre><code class="codigo">// Criando uma Promise
+function simularRequisicao(dados, tempo = 1000) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() > 0.1) { // 90% de sucesso
+        resolve(`Dados recebidos: ${dados}`);
+      } else {
+        reject('Erro na requisição');
+      }
+    }, tempo);
+  });
+}
+
+// Usando .then() e .catch()
+simularRequisicao('usuário123')
+  .then(resultado => {
+    console.log('Sucesso:', resultado);
+    return simularRequisicao('detalhes');
+  })
+  .then(resultado => {
+    console.log('Segunda requisição:', resultado);
+  })
+  .catch(erro => {
+    console.error('Erro:', erro);
+  })
+  .finally(() => {
+    console.log('Operação finalizada');
+  });
+
+// Usando async/await
+async function buscarDados() {
+  try {
+    const resultado1 = await simularRequisicao('primeiro');
+    console.log(resultado1);
+    
+    const resultado2 = await simularRequisicao('segundo');
+    console.log(resultado2);
+    
+    return 'Todos os dados carregados';
+  } catch (erro) {
+    console.error('Erro:', erro);
+    throw erro;
+  }
+}
+
+// Promise.all - executar múltiplas promises
+async function carregarTudo() {
+  try {
+    const promises = [
+      simularRequisicao('dados1', 1000),
+      simularRequisicao('dados2', 1500),
+      simularRequisicao('dados3', 800)
+    ];
+    
+    const resultados = await Promise.all(promises);
+    console.log('Todos os resultados:', resultados);
+  } catch (erro) {
+    console.error('Erro em uma das promises:', erro);
+  }
+}
+
+// Promise.race - primeira a resolver
+async function competicao() {
+  const vencedor = await Promise.race([
+    simularRequisicao('rápido', 500),
+    simularRequisicao('lento', 2000)
+  ]);
+  console.log('Vencedor:', vencedor);
+}
+
+// Fetch API (requisições HTTP)
+async function buscarUsuario(id) {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const usuario = await response.json();
+    return usuario;
+  } catch (erro) {
+    console.error('Erro ao buscar usuário:', erro);
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 9: ES6+ Features</h2>
+      <div class="detalhado">
+        <p>ES6 (ECMAScript 2015) e versões posteriores introduziram recursos modernos que tornaram JavaScript mais poderoso e expressivo. Essas features incluem arrow functions, destructuring, spread/rest operators, template literals, classes, módulos e muito mais.</p>
+        <p>Principais features: <b>Arrow Functions</b>, <b>Destructuring</b>, <b>Spread/Rest Operators</b>, <b>Template Literals</b>, <b>Default Parameters</b>, <b>Object Shorthand</b>, <b>Computed Properties</b>, <b>Optional Chaining</b>, <b>Nullish Coalescing</b>, <b>Modules</b>.</p>
+      </div>
+      <div class="resumido">
+        <p>ES6+ trouxe recursos modernos: arrow functions, destructuring, spread operator, etc.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Features Modernas do JavaScript</h3>
+        <pre><code class="codigo">// 1. Arrow Functions
+const somar = (a, b) => a + b;
+const multiplicar = (a, b) => {
+  const resultado = a * b;
+  return resultado;
+};
+
+// 2. Destructuring
+const pessoa = { nome: 'João', idade: 30, cidade: 'SP' };
+const { nome, idade, cidade } = pessoa;
+const { nome: nomeCompleto } = pessoa; // Renomeando
+
+const frutas = ['maçã', 'banana', 'laranja'];
+const [primeira, segunda, terceira] = frutas;
+const [primeiraFruta, ...outrasFrutas] = frutas;
+
+// 3. Spread Operator
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const arrayCombinado = [...array1, ...array2];
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const objCombinado = { ...obj1, ...obj2 };
+
+// 4. Rest Parameters
+function somarTodos(...numeros) {
+  return numeros.reduce((total, num) => total + num, 0);
+}
+
+// 5. Template Literals
+const nome = 'Maria';
+const idade = 25;
+const mensagem = `Olá, ${nome}! Você tem ${idade} anos.`;
+
+// 6. Default Parameters
+function saudar(nome = 'Visitante', saudacao = 'Olá') {
+  return `${saudacao}, ${nome}!`;
+}
+
+// 7. Object Shorthand
+const nome2 = 'Pedro';
+const idade2 = 28;
+const pessoa2 = { nome2, idade2 }; // { nome2: 'Pedro', idade2: 28 }
+
+// 8. Computed Properties
+const propriedade = 'cor';
+const valor = 'azul';
+const objeto = {
+  [propriedade]: valor,
+  [`${propriedade}Escura`]: 'azul escuro'
+};
+
+// 9. Optional Chaining (ES2020)
+const usuario = {
+  perfil: {
+    endereco: {
+      rua: 'Rua das Flores'
+    }
+  }
+};
+const rua = usuario?.perfil?.endereco?.rua; // 'Rua das Flores'
+const telefone = usuario?.perfil?.telefone; // undefined
+
+// 10. Nullish Coalescing (ES2020)
+const valorPadrao = null ?? 'valor padrão'; // 'valor padrão'
+const valorZero = 0 ?? 'valor padrão'; // 0
+
+// 11. Modules (ES6)
+// arquivo: utils.js
+export const PI = 3.14159;
+export function calcularArea(raio) {
+  return PI * raio * raio;
+}
+
+// arquivo: main.js
+import { PI, calcularArea } from './utils.js';
+
+// 12. Class Fields (ES2022)
+class Produto {
+  #preco; // Campo privado
+  static #contador = 0; // Campo estático privado
+  
+  constructor(nome, preco) {
+    this.nome = nome;
+    this.#preco = preco;
+    Produto.#contador++;
+  }
+  
+  get preco() {
+    return this.#preco;
+  }
+  
+  static get total() {
+    return Produto.#contador;
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="capitulo" data-detalhado="true">
+      <h2>Capítulo 10: Animações e Efeitos</h2>
+      <div class="detalhado">
+        <p>JavaScript permite criar animações complexas e efeitos visuais dinâmicos. Isso pode ser feito manipulando estilos CSS, usando bibliotecas como GSAP, ou criando animações canvas/SVG. Animações melhoram a experiência do usuário e tornam interfaces mais atrativas.</p>
+        <p>Técnicas: <b>CSS Transitions</b> (transições suaves), <b>CSS Animations</b> (animações keyframe), <b>JavaScript Animations</b> (requestAnimationFrame), <b>Canvas Animations</b> (gráficos dinâmicos), <b>SVG Animations</b> (gráficos vetoriais), <b>Parallax Effects</b> (efeitos de profundidade).</p>
+      </div>
+      <div class="resumido">
+        <p>JavaScript pode criar animações complexas. Múltiplas técnicas: CSS, Canvas, SVG.</p>
+      </div>
+      <div class="exemplo">
+        <h3>Exemplos de Animações</h3>
+        <div id="animationDemo" style="margin: 1rem 0; padding: 1rem; background: #1b3358; border-radius: 8px; min-height: 200px; position: relative;">
+          <button id="animarQuadrado">Animar Quadrado</button>
+          <button id="animarTexto">Animar Texto</button>
+          <button id="animarCor">Animar Cor</button>
+          <div id="quadrado" style="width:60px;height:60px;background:#6fa3ef;margin-top:1rem;border-radius:8px;position:relative;transition: all 0.7s;"></div>
+          <div id="textoAnimado" style="margin-top:1rem;font-size:1.2rem;color:#e0e6ed;transition: all 0.5s;">Texto para animar</div>
+        </div>
+        <pre><code class="codigo">// 1. Animações com CSS Transitions
+function animarQuadrado() {
+  const quadrado = document.getElementById('quadrado');
+  const posicaoAtual = quadrado.style.left;
+  
+  if (posicaoAtual === '200px') {
+    quadrado.style.left = '0px';
+    quadrado.style.transform = 'rotate(0deg)';
+  } else {
+    quadrado.style.left = '200px';
+    quadrado.style.transform = 'rotate(360deg)';
+  }
+}
+
+// 2. Animações com JavaScript (requestAnimationFrame)
+function animarTexto() {
+  const texto = document.getElementById('textoAnimado');
+  let opacidade = 0;
+  let escala = 0.5;
+  
+  function animar() {
+    opacidade += 0.02;
+    escala += 0.02;
+    
+    texto.style.opacity = opacidade;
+    texto.style.transform = `scale(${escala})`;
+    
+    if (opacidade < 1) {
+      requestAnimationFrame(animar);
+    }
+  }
+  
+  animar();
+}
+
+// 3. Animações de cor
+function animarCor() {
+  const quadrado = document.getElementById('quadrado');
+  const cores = ['#6fa3ef', '#ff6b6b', '#51cf66', '#ffd43b', '#ae3ec9'];
+  let indice = 0;
+  
+  setInterval(() => {
+    quadrado.style.backgroundColor = cores[indice];
+    indice = (indice + 1) % cores.length;
+  }, 1000);
+}
+
+// 4. Animações com CSS Keyframes
+const keyframes = `
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+`;
+
+// 5. Animações de entrada
+function animarEntrada(elemento) {
+  elemento.style.opacity = '0';
+  elemento.style.transform = 'translateY(50px)';
+  
+  setTimeout(() => {
+    elemento.style.transition = 'all 0.8s ease-out';
+    elemento.style.opacity = '1';
+    elemento.style.transform = 'translateY(0)';
+  }, 100);
+}
+
+// 6. Parallax Effect
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallax = document.querySelector('.parallax');
+  const speed = scrolled * 0.5;
+  
+  parallax.style.transform = `translateY(${speed}px)`;
+});
+
+// 7. Animações com Canvas
+function animarCanvas() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  let x = 0;
+  
+  function desenhar() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#6fa3ef';
+    ctx.fillRect(x, 50, 50, 50);
+    
+    x += 2;
+    if (x > canvas.width) x = 0;
+    
+    requestAnimationFrame(desenhar);
+  }
+  
+  desenhar();
+}
+
+// Event listeners
+document.getElementById('animarQuadrado').addEventListener('click', animarQuadrado);
+document.getElementById('animarTexto').addEventListener('click', animarTexto);
+document.getElementById('animarCor').addEventListener('click', animarCor);</code></pre>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Livro interativo completo sobre JavaScript, com exemplos detalhados, códigos práticos e animações.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html> 
